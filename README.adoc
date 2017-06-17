@@ -46,6 +46,9 @@ https://github.com/oneclicklabs-devxchange/loging-demo.git[logging-demo]
 
 ## Release History
 
+** 0.0.2-SNAPSHOT
+    * adding feature to enable/disable payload logging
+    
 ** 0.0.1-SNAPSHOT
     * logging rest verb & payload to console.
 
