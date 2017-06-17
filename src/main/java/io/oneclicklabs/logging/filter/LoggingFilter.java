@@ -1,7 +1,7 @@
 /**
  * 
  */
-package io.oneclicklabs.transaction.logging.filter;
+package io.oneclicklabs.logging.filter;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.ContentCachingResponseWrapper;
 
-import io.oneclicklabs.transaction.logging.util.CachedRequestWrapper;
+import io.oneclicklabs.logging.util.CachedRequestWrapper;
 
 /**
  * Created by oneclicklabs.io on 2/10/17.

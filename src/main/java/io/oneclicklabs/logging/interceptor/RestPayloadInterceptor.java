@@ -1,4 +1,4 @@
-package io.oneclicklabs.transaction.logging.interceptor;
+package io.oneclicklabs.logging.interceptor;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -18,22 +19,28 @@ import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import io.oneclicklabs.transaction.logging.types.PayloadMessageBuilder;
-import io.oneclicklabs.transaction.logging.util.LogUtil;
-import io.oneclicklabs.transaction.logging.writer.LogWriterManager;
+import io.oneclicklabs.logging.types.PayloadMessageBuilder;
+import io.oneclicklabs.logging.util.LogUtil;
+import io.oneclicklabs.logging.writer.LogWriterManager;
 
 /**
  * Created by oneclicklabs.io on 2/10/17.
  */
 @Component
-public class RestTransactionInterceptor extends HandlerInterceptorAdapter {
+public class RestPayloadInterceptor extends HandlerInterceptorAdapter {
 
-	Logger log = LoggerFactory.getLogger(RestTransactionInterceptor.class);
+	Logger log = LoggerFactory.getLogger(RestPayloadInterceptor.class);
 
 	private LogWriterManager logWriter;
 
+	@Value("${io.oneclicklabs.logging.request.obfuscated.fields}")
+	private String[] requestObfuscation;
+
+	@Value("${io.oneclicklabs.logging.response.obfuscated.fields}")
+	private String[] responseObfuscation;
+
 	@Autowired
-	public RestTransactionInterceptor(@Qualifier("manager.logwriter") LogWriterManager logWriter) {
+	public RestPayloadInterceptor(@Qualifier("manager.logwriter") LogWriterManager logWriter) {
 
 		this.logWriter = logWriter;
 	}
@@ -70,8 +77,8 @@ public class RestTransactionInterceptor extends HandlerInterceptorAdapter {
 		Date endDateTime = new Date((Long) servletRequest.getAttribute("ENDTIME"));
 		long duration = ((Long) servletRequest.getAttribute("ENDTIME")
 				- (Long) servletRequest.getAttribute("STARTTIME"));
-		PayloadMessageBuilder messageBuilder = new PayloadMessageBuilder(hostname, node, null,
-				getServiceOperation(), servletRequest.getMethod(), duration);
+		PayloadMessageBuilder messageBuilder = new PayloadMessageBuilder(hostname, node, null, getServiceOperation(),
+				servletRequest.getMethod(), duration);
 		messageBuilder.aspects(null).query(servletRequest.getQueryString()).startDateTime(startDateTime)
 				.endDateTime(endDateTime).requestBody(requestPayload).contentType(servletRequest.getContentType())
 				.responseBody(responsePayload);

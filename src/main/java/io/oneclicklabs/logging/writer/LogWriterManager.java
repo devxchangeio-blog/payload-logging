@@ -1,7 +1,7 @@
 /**
  * 
  */
-package io.oneclicklabs.transaction.logging.writer;
+package io.oneclicklabs.logging.writer;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import io.oneclicklabs.transaction.logging.types.PayloadMessage;
+import io.oneclicklabs.logging.types.PayloadMessage;
 
 /**
  * Created by oneclicklabs.io on 2/10/17.

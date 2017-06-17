@@ -1,4 +1,4 @@
-package io.oneclicklabs.transaction.logging.types;
+package io.oneclicklabs.logging.types;
 
 import java.util.Date;
 import java.util.Map;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package io.oneclicklabs.transaction.logging.util;
+package io.oneclicklabs.logging.util;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;

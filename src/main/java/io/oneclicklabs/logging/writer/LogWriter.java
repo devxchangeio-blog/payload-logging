@@ -1,9 +1,9 @@
 /**
  * 
  */
-package io.oneclicklabs.transaction.logging.writer;
+package io.oneclicklabs.logging.writer;
 
-import io.oneclicklabs.transaction.logging.types.PayloadMessage;
+import io.oneclicklabs.logging.types.PayloadMessage;
 
 /**
  * Created by oneclicklabs.io on 2/10/17.

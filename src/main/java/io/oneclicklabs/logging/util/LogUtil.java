@@ -1,7 +1,7 @@
 /**
  * 
  */
-package io.oneclicklabs.transaction.logging.util;
+package io.oneclicklabs.logging.util;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
