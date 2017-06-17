@@ -46,12 +46,10 @@ public class AppConfig extends WebMvcConfigurerAdapter
     * logging rest verb & payload to console.
 
 ## Meta
-
-Karthikeyan Sadayamuthu – [linkedin](https://www.linkedin.com/in/karthy86/)
+Karthikeyan Sadayamuthu – [LinkedIn](https://www.linkedin.com/in/karthy86/)
 
 Distributed under the Apache License. See ``LICENSE`` for more information.
-
- [license](https://github.com/karthy86/payload-logging/blob/master/LICENSE)
+[license](https://github.com/karthy86/payload-logging/blob/master/LICENSE)
 
 ## Contributing
 
