@@ -2,7 +2,7 @@ image::https://travis-ci.org/karthy86/payload-logging.svg?branch=master[Build St
 
 ## payload-logging
 
-Payload Logging Framework provides simplified configuration to log payload for spring project.
+payload-logging framework provides simplified configuration to log payload for spring project.
 
 ## Dependencies
 
@@ -46,10 +46,9 @@ public class AppConfig extends WebMvcConfigurerAdapter
     * logging rest verb & payload to console.
 
 ## Meta
-Karthikeyan Sadayamuthu – [LinkedIn](https://www.linkedin.com/in/karthy86/)
+Karthikeyan Sadayamuthu – https://www.linkedin.com/in/karthy86/[LinkedIn]
 
-Distributed under the Apache License. See ``LICENSE`` for more information.
-[license](https://github.com/karthy86/payload-logging/blob/master/LICENSE)
+Distributed under the Apache License. See ``LICENSE`` for more information.https://github.com/karthy86/payload-logging/blob/master/LICENSE[license]
 
 ## Contributing
 
