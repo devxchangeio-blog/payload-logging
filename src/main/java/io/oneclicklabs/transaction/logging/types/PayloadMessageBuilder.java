@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by oneclicklabs.io on 2/10/17.
  */
-public class TransactionMessageBuilder {
+public class PayloadMessageBuilder {
 	private String message_type;
 	private Long duration;
 	private String host;
@@ -29,9 +29,9 @@ public class TransactionMessageBuilder {
 	private String httpMethod;
 	private String query;
 
-	private static final String MESSAGE_TYPE = "TRANSACTION_MESSAGE";
+	private static final String MESSAGE_TYPE = "PAYLOAD_MESSAGE";
 
-	public TransactionMessageBuilder(final String host, final String node, final String system,
+	public PayloadMessageBuilder(final String host, final String node, final String system,
 			final String serviceOperation, final String httpMethod, final long duration) {
 		this.message_type(MESSAGE_TYPE);
 		this.host(host);
@@ -50,12 +50,12 @@ public class TransactionMessageBuilder {
 		return responseBody;
 	}
 
-	public TransactionMessageBuilder requestBody(String requestBody) {
+	public PayloadMessageBuilder requestBody(String requestBody) {
 		this.requestBody = requestBody;
 		return this;
 	}
 
-	public TransactionMessageBuilder responseBody(String responseBody) {
+	public PayloadMessageBuilder responseBody(String responseBody) {
 		this.responseBody = responseBody;
 		return this;
 	}
@@ -64,7 +64,7 @@ public class TransactionMessageBuilder {
 		return applicationName;
 	}
 
-	public TransactionMessageBuilder applicationName(String applicationName) {
+	public PayloadMessageBuilder applicationName(String applicationName) {
 		this.applicationName = applicationName;
 		return this;
 	}
@@ -73,12 +73,12 @@ public class TransactionMessageBuilder {
 		return message_type;
 	}
 
-	public TransactionMessageBuilder message_type(String message_type) {
+	public PayloadMessageBuilder message_type(String message_type) {
 		this.message_type = message_type;
 		return this;
 	}
 
-	public TransactionMessageBuilder aspects(Map<String, String> aspects) {
+	public PayloadMessageBuilder aspects(Map<String, String> aspects) {
 		this.aspects = aspects;
 		return this;
 	}
@@ -91,7 +91,7 @@ public class TransactionMessageBuilder {
 		return duration;
 	}
 
-	public TransactionMessageBuilder duration(Long duration) {
+	public PayloadMessageBuilder duration(Long duration) {
 		this.duration = duration;
 		return this;
 	}
@@ -100,7 +100,7 @@ public class TransactionMessageBuilder {
 		return host;
 	}
 
-	public TransactionMessageBuilder host(String host) {
+	public PayloadMessageBuilder host(String host) {
 		this.host = host;
 		return this;
 	}
@@ -109,7 +109,7 @@ public class TransactionMessageBuilder {
 		return level;
 	}
 
-	public TransactionMessageBuilder level(String level) {
+	public PayloadMessageBuilder level(String level) {
 		this.level = level;
 		return this;
 	}
@@ -118,7 +118,7 @@ public class TransactionMessageBuilder {
 		return method;
 	}
 
-	public TransactionMessageBuilder method(String method) {
+	public PayloadMessageBuilder method(String method) {
 		this.method = method;
 		return this;
 	}
@@ -127,7 +127,7 @@ public class TransactionMessageBuilder {
 		return node;
 	}
 
-	public TransactionMessageBuilder node(String node) {
+	public PayloadMessageBuilder node(String node) {
 		this.node = node;
 		return this;
 	}
@@ -136,7 +136,7 @@ public class TransactionMessageBuilder {
 		return service;
 	}
 
-	public TransactionMessageBuilder service(String service) {
+	public PayloadMessageBuilder service(String service) {
 		this.service = service;
 		return this;
 	}
@@ -145,7 +145,7 @@ public class TransactionMessageBuilder {
 		return system;
 	}
 
-	public TransactionMessageBuilder system(String system) {
+	public PayloadMessageBuilder system(String system) {
 		this.system = system;
 		return this;
 	}
@@ -154,7 +154,7 @@ public class TransactionMessageBuilder {
 		return serviceVersion;
 	}
 
-	public TransactionMessageBuilder serviceVersion(String serviceVersion) {
+	public PayloadMessageBuilder serviceVersion(String serviceVersion) {
 		this.serviceVersion = serviceVersion;
 		return this;
 	}
@@ -163,7 +163,7 @@ public class TransactionMessageBuilder {
 		return startDateTime;
 	}
 
-	public TransactionMessageBuilder startDateTime(Date startDateTime) {
+	public PayloadMessageBuilder startDateTime(Date startDateTime) {
 		this.startDateTime = startDateTime;
 		return this;
 	}
@@ -172,7 +172,7 @@ public class TransactionMessageBuilder {
 		return endDateTime;
 	}
 
-	public TransactionMessageBuilder endDateTime(Date endDateTime) {
+	public PayloadMessageBuilder endDateTime(Date endDateTime) {
 		this.endDateTime = endDateTime;
 		return this;
 	}
@@ -181,12 +181,12 @@ public class TransactionMessageBuilder {
 		return error;
 	}
 
-	public TransactionMessageBuilder error(Boolean error) {
+	public PayloadMessageBuilder error(Boolean error) {
 		this.error = error;
 		return this;
 	}
 
-	public TransactionMessageBuilder contentType(String contentType) {
+	public PayloadMessageBuilder contentType(String contentType) {
 		this.contentType = contentType;
 		return this;
 	}
@@ -195,7 +195,7 @@ public class TransactionMessageBuilder {
 		return errorCode;
 	}
 
-	public TransactionMessageBuilder errorCode(String errorCode) {
+	public PayloadMessageBuilder errorCode(String errorCode) {
 		this.errorCode = errorCode;
 		return this;
 	}
@@ -204,7 +204,7 @@ public class TransactionMessageBuilder {
 		return errorMessage;
 	}
 
-	public TransactionMessageBuilder errorMessage(String errorMessage) {
+	public PayloadMessageBuilder errorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 		return this;
 	}
@@ -213,17 +213,17 @@ public class TransactionMessageBuilder {
 		return MESSAGE_TYPE;
 	}
 
-	public TransactionMessage createTransactionMessage() {
-		return new TransactionMessage(message_type, duration, host, level, method, node, service, system,
-				serviceVersion, startDateTime, endDateTime, error, errorCode, errorMessage, aspects, requestBody,
-				responseBody, applicationName, httpMethod, query, contentType);
+	public PayloadMessage createTransactionMessage() {
+		return new PayloadMessage(message_type, duration, host, level, method, node, service, system, serviceVersion,
+				startDateTime, endDateTime, error, errorCode, errorMessage, aspects, requestBody, responseBody,
+				applicationName, httpMethod, query, contentType);
 	}
 
 	public String getHttpMethod() {
 		return httpMethod;
 	}
 
-	public TransactionMessageBuilder httpMethod(String httpMethod) {
+	public PayloadMessageBuilder httpMethod(String httpMethod) {
 		this.httpMethod = httpMethod;
 		return this;
 	}
@@ -232,12 +232,12 @@ public class TransactionMessageBuilder {
 		return query;
 	}
 
-	public TransactionMessageBuilder query(String query) {
+	public PayloadMessageBuilder query(String query) {
 		this.query = query;
 		return this;
 	}
 
-	public TransactionMessageBuilder populateWithError(String code, String message) {
+	public PayloadMessageBuilder populateWithError(String code, String message) {
 		return this.error(true).errorCode(code).errorMessage(message);
 	}
 

@@ -77,8 +77,8 @@ publishing {
 
 		maven {
 			credentials {
-				username "${System.getProperty("sonatypeUserName")}"
-				password "${System.getProperty("sonatypePassword")}"
+				username "$ossrhUsername"
+				password "$ossrhPassword"
 			}
 
 			if(project.version.endsWith('-SNAPSHOT')) {

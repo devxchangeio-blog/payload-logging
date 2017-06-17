@@ -14,7 +14,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import io.oneclicklabs.transaction.logging.types.TransactionMessage;
+import io.oneclicklabs.transaction.logging.types.PayloadMessage;
 
 /**
  * Created by oneclicklabs.io on 2/10/17.
@@ -42,7 +42,7 @@ public class LogWriterManager {
 		return Collections.unmodifiableList(this.writerList);
 	}
 
-	public void writeTransactionlog(TransactionMessage transactionMessage) {
+	public void writeTransactionlog(PayloadMessage transactionMessage) {
 		this.stream().filter(writer -> writer.isEnabled())
 				.forEach(writer -> writer.writeTransactionlog(transactionMessage));
 	}

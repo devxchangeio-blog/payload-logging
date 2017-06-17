@@ -18,7 +18,7 @@ import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import io.oneclicklabs.transaction.logging.types.TransactionMessageBuilder;
+import io.oneclicklabs.transaction.logging.types.PayloadMessageBuilder;
 import io.oneclicklabs.transaction.logging.util.LogUtil;
 import io.oneclicklabs.transaction.logging.writer.LogWriterManager;
 
@@ -70,7 +70,7 @@ public class RestTransactionInterceptor extends HandlerInterceptorAdapter {
 		Date endDateTime = new Date((Long) servletRequest.getAttribute("ENDTIME"));
 		long duration = ((Long) servletRequest.getAttribute("ENDTIME")
 				- (Long) servletRequest.getAttribute("STARTTIME"));
-		TransactionMessageBuilder messageBuilder = new TransactionMessageBuilder(hostname, node, null,
+		PayloadMessageBuilder messageBuilder = new PayloadMessageBuilder(hostname, node, null,
 				getServiceOperation(), servletRequest.getMethod(), duration);
 		messageBuilder.aspects(null).query(servletRequest.getQueryString()).startDateTime(startDateTime)
 				.endDateTime(endDateTime).requestBody(requestPayload).contentType(servletRequest.getContentType())

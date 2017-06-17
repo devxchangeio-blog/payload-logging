@@ -9,7 +9,7 @@ import com.google.gson.GsonBuilder;
 /**
  * Created by oneclicklabs.io on 2/10/17.
  */
-public class TransactionMessage {
+public class PayloadMessage {
 
 	public enum params {
 		messageType("message_type"), duration("Duration"), host("Host"), level("Level"), method("Method"), node(
@@ -53,7 +53,7 @@ public class TransactionMessage {
 	private final String query;
 	private final String contentType;
 
-	public TransactionMessage(String message_type, Long duration, String host, String level, String method, String node,
+	public PayloadMessage(String message_type, Long duration, String host, String level, String method, String node,
 			String service, String system,
 
 			String serviceVersion, Date startDateTime, Date endDateTime, Boolean error, String errorCode,

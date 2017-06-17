@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import io.oneclicklabs.transaction.logging.types.TransactionMessage;
+import io.oneclicklabs.transaction.logging.types.PayloadMessage;
 
 /**
  * Created by oneclicklabs.io on 2/10/17.
@@ -15,21 +15,21 @@ import io.oneclicklabs.transaction.logging.types.TransactionMessage;
 @Component
 public class ConsoleLogWriter implements LogWriter {
 
-	public static final String TRANSACTION_LOGGER = "io.oneclicklabs.transaction.logger";
+	public static final String PAYLOAD_LOGGER = "io.oneclicklabs.payload.logger";
 
-	@Value("${transaction.logger.enabled}")
-	public boolean TRANSACTION_LOGGER_ENABLED = true;
+	@Value("${payload.logger.enabled:true}")
+	public boolean PAYLOAD_LOGGER_ENABLED;
 
-	private static final Logger LOG = LoggerFactory.getLogger(TRANSACTION_LOGGER);
+	private static final Logger LOG = LoggerFactory.getLogger(PAYLOAD_LOGGER);
 
 	@Override
-	public void writeTransactionlog(TransactionMessage message) {
-		LOG.info("[transactionmessage] {}", message.toJson(true, true));
+	public void writeTransactionlog(PayloadMessage message) {
+		LOG.info("[payloadmessage] {}", message.toJson(true, true));
 	}
 
 	@Override
 	public boolean isEnabled() {
-		return TRANSACTION_LOGGER_ENABLED;
+		return PAYLOAD_LOGGER_ENABLED;
 	}
 
 }
