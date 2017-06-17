@@ -7,7 +7,7 @@ payload-logging framework provides simplified configuration to log payload for s
 ## Dependencies
 
 ```
-compile ("io.oneclicklabs.logging:payload-logging:0.0.1-SNAPSHOT")
+compile ("io.oneclicklabs.logging:payload-logging:0.0.2-SNAPSHOT")
 	
 ```
 
