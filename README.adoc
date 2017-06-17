@@ -1,3 +1,3 @@
-image::https://travis-ci.org/karthy86/transaction-logging.svg?branch=master[Build Status]
+image::https://travis-ci.org/karthy86/payload-logging.svg?branch=master[Build Status]
 
 # transaction-logging
