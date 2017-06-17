@@ -2,56 +2,57 @@ image::https://travis-ci.org/karthy86/payload-logging.svg?branch=master[Build St
 
 ## payload-logging
 
-Payload Logging Framework provides simplified configuration to log payload for spring project.
+payload-logging framework provides simplified configuration to log payload for spring project.
 
 ## Dependencies
 
 ```
-	compile ("io.oneclicklabs.logging:payload-logging:0.0.1-SNAPSHOT")
+compile ("io.oneclicklabs.logging:payload-logging:0.0.1-SNAPSHOT")
 	
 ```
 
 ## Usage
 
-### Enable payload-logging
+### Enable payload-logging - Add below property to your application.properties file
 
 ```
-	payload.logger.enabled=true
+payload.logger.enabled=true
 
 ```
 
 ### Injecting the LogWriterManager & adding Interceptors
 
 ```
-	@Configuration
-	@EnableWebMvc
-	public class AppConfig extends WebMvcConfigurerAdapter 
+@Configuration
+@EnableWebMvc
+public class AppConfig extends WebMvcConfigurerAdapter 
+{
+	@Autowired
+	@Qualifier("manager.logwriter")
+	private LogWriterManager logWriterManager;
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) 
 	{
-		@Autowired
-		@Qualifier("manager.logwriter")
-		private LogWriterManager logWriterManager;
-	
-		@Override
-		public void addInterceptors(InterceptorRegistry registry) 
-		{
-			registry.addInterceptor(new RestTransactionInterceptor(logWriterManager));
-		}
+		registry.addInterceptor(new RestTransactionInterceptor(logWriterManager));
 	}
+}
 	
 ```
 
+### Demo Project 
+
+https://github.com/oneclicklabs-devxchange/loging-demo.git[logging-demo]
+
 ## Release History
 
-* 0.0.1-SNAPSHOT
+** 0.0.1-SNAPSHOT
     * logging rest verb & payload to console.
 
 ## Meta
+Karthikeyan Sadayamuthu – https://www.linkedin.com/in/karthy86/[LinkedIn]
 
-Karthikeyan Sadayamuthu – [@karthy86](https://www.linkedin.com/in/karthy86/) – ksadayamuthu@gmail.com
-
-Distributed under the Apache License. See ``LICENSE`` for more information.
-
-[https://github.com/karthy86/payload-logging/blob/master/LICENSE](https://github.com/karthy86/payload-logging)
+Distributed under the Apache License. See ``LICENSE`` for more information. https://github.com/karthy86/payload-logging/blob/master/LICENSE[license]
 
 ## Contributing
 
