@@ -47,11 +47,11 @@ public class AppConfig extends WebMvcConfigurerAdapter
 
 ## Meta
 
-Karthikeyan Sadayamuthu – [LinkedIn](https://www.linkedin.com/in/karthy86/)
+Karthikeyan Sadayamuthu – [linkedin](https://www.linkedin.com/in/karthy86/)
 
 Distributed under the Apache License. See ``LICENSE`` for more information.
 
-[Apache License](https://github.com/karthy86/payload-logging/blob/master/LICENSE)
+ [license](https://github.com/karthy86/payload-logging/blob/master/LICENSE)
 
 ## Contributing
 
