@@ -16,7 +16,9 @@ compile ("io.oneclicklabs.logging:payload-logging:0.0.1-SNAPSHOT")
 ### Enable payload-logging - Add below property to your application.properties file
 
 ```
-payload.logger.enabled=true
+io.oneclicklabs.logging.enabled=true
+io.oneclicklabs.logging.request.enabled=true
+io.oneclicklabs.logging.response.enabled=true
 
 ```
 
