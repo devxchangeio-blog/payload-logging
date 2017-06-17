@@ -1,27 +1,57 @@
 image::https://travis-ci.org/karthy86/payload-logging.svg?branch=master[Build Status]
 
-<snippet>
-  <content><![CDATA[
-# ${1:payload-logging}
+## payload-logging
 
 Payload Logging Framework provides simplified configuration to log payload for spring project.
 
 ## Dependencies
 
 ```
-    compile ("io.oneclicklabs.logging:payload-logging:0.0.1-SNAPSHOT")
-
+	compile ("io.oneclicklabs.logging:payload-logging:0.0.1-SNAPSHOT")
+	
 ```
 
 ## Usage
 
-```
-
-@Autowired
-@Qualifier("manager.logwriter")
-private LogWriterManager logWriterManager;
+### Enable payload-logging
 
 ```
+	payload.logger.enabled=true
+
+```
+
+### Injecting the LogWriterManager & adding Interceptors
+
+```
+	@Configuration
+	@EnableWebMvc
+	public class AppConfig extends WebMvcConfigurerAdapter 
+	{
+		@Autowired
+		@Qualifier("manager.logwriter")
+		private LogWriterManager logWriterManager;
+	
+		@Override
+		public void addInterceptors(InterceptorRegistry registry) 
+		{
+			registry.addInterceptor(new RestTransactionInterceptor(logWriterManager));
+		}
+	}
+	
+```
+
+## Release History
+
+* 0.0.1-SNAPSHOT
+    * logging rest verb & payload to console.
+
+## Meta
+
+Karthikeyan Sadayamuthu – [@karthy86](https://www.linkedin.com/in/karthy86/) – ksadayamuthu@gmail.com
+
+Distributed under the Apache License. See ``LICENSE`` for more information.
+
+[https://github.com/karthy86/payload-logging/blob/master/LICENSE](https://github.com/karthy86/payload-logging)
 
 ## Contributing
 
@@ -31,17 +61,3 @@ private LogWriterManager logWriterManager;
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## History
-
-TODO: Write history
-
-## Credits
-
-TODO: Write credits
-
-## License
-
-TODO: Write license
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
