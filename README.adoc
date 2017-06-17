@@ -7,7 +7,7 @@ Payload Logging Framework provides simplified configuration to log payload for s
 ## Dependencies
 
 ```
-	compile ("io.oneclicklabs.logging:payload-logging:0.0.1-SNAPSHOT")
+compile ("io.oneclicklabs.logging:payload-logging:0.0.1-SNAPSHOT")
 	
 ```
 
@@ -16,42 +16,42 @@ Payload Logging Framework provides simplified configuration to log payload for s
 ### Enable payload-logging
 
 ```
-	payload.logger.enabled=true
+payload.logger.enabled=true
 
 ```
 
 ### Injecting the LogWriterManager & adding Interceptors
 
 ```
-	@Configuration
-	@EnableWebMvc
-	public class AppConfig extends WebMvcConfigurerAdapter 
+@Configuration
+@EnableWebMvc
+public class AppConfig extends WebMvcConfigurerAdapter 
+{
+	@Autowired
+	@Qualifier("manager.logwriter")
+	private LogWriterManager logWriterManager;
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) 
 	{
-		@Autowired
-		@Qualifier("manager.logwriter")
-		private LogWriterManager logWriterManager;
-	
-		@Override
-		public void addInterceptors(InterceptorRegistry registry) 
-		{
-			registry.addInterceptor(new RestTransactionInterceptor(logWriterManager));
-		}
+		registry.addInterceptor(new RestTransactionInterceptor(logWriterManager));
 	}
+}
 	
 ```
 
 ## Release History
 
-* 0.0.1-SNAPSHOT
+** 0.0.1-SNAPSHOT
     * logging rest verb & payload to console.
 
 ## Meta
 
-Karthikeyan Sadayamuthu – [@karthy86](https://www.linkedin.com/in/karthy86/) – ksadayamuthu@gmail.com
+Karthikeyan Sadayamuthu – [LinkedIn](https://www.linkedin.com/in/karthy86/)
 
 Distributed under the Apache License. See ``LICENSE`` for more information.
 
-[https://github.com/karthy86/payload-logging/blob/master/LICENSE](https://github.com/karthy86/payload-logging)
+[Apache License](https://github.com/karthy86/payload-logging/blob/master/LICENSE)
 
 ## Contributing
 
