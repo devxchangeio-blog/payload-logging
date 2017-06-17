@@ -13,7 +13,7 @@ compile ("io.oneclicklabs.logging:payload-logging:0.0.1-SNAPSHOT")
 
 ## Usage
 
-### Enable payload-logging
+### Enable payload-logging - Add below property to your application.properties file
 
 ```
 payload.logger.enabled=true
@@ -39,6 +39,10 @@ public class AppConfig extends WebMvcConfigurerAdapter
 }
 	
 ```
+
+### Demo Project 
+
+https://github.com/oneclicklabs-devxchange/loging-demo.git[logging-demo]
 
 ## Release History
 
