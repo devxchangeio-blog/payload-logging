@@ -4,6 +4,12 @@ image::https://travis-ci.org/karthy86/payload-logging.svg?branch=master[Build St
 
 payload-logging framework provides simplified configuration to log payload for spring project.
 
+## Maven Repo 
+```
+maven { url "https://oss.sonatype.org/content/groups/public"}
+
+```
+
 ## Dependencies
 
 ```
